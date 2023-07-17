@@ -1,0 +1,27 @@
+.vertical-line {
+    width: 2px; /* Adjust the width as needed */
+    background-color: lightblue; /* Adjust the color as needed */
+    height: 90%; /* Make the line extend the full height of its container */
+    position: absolute; /* Position the line absolutely */
+    left: 21%; /* Adjust the left position to align the line */
+    top: 57px; /* Position the line at the top of its container */
+    transform: translateX(-50%); /* Center the line horizontally */
+  }
+
+  
+  .button {
+    position: absolute; /* Position the button absolutely */
+    top: 0%; /* Adjust the top position to position vertically */
+    left: 10%; /* Adjust the left position to position horizontally */
+    transform: translate(-50%, -50%); /* Center the button horizontally and vertically */
+  }
+
+  .custom-button {
+    position: absolute;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-color: #ff0000; /* Set the desired background color */
+    color: #ffffff; /* Set the desired text color */
+    padding: 10px 20px; /* Set the desired padding */
+    border: none; /* Remove the button border if desired */
+  }
