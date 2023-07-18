@@ -16,7 +16,6 @@ function App() {
   };
   return (
     <>
-      {/* <ForeCast></ForeCast> */}
       <div>
         <Alert>
           <center>
@@ -70,6 +69,7 @@ function App() {
                 </a>
               </li>
             </Dropdown>
+            <div>{isShown && <ForeCast></ForeCast>}</div>
           </div>
         )}
       </div>
