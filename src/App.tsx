@@ -6,6 +6,7 @@ import Vertical from "./Vertical";
 import Collapse from "./components/Collapse";
 import Dropdown from "./components/Dropdown";
 import { useState } from "react";
+import ForeCast from "./components/ForeCast";
 
 function App() {
   const [isShown, setIsShown] = useState(false);
@@ -15,6 +16,7 @@ function App() {
   };
   return (
     <>
+      {/* <ForeCast></ForeCast> */}
       <div>
         <Alert>
           <center>
