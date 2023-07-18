@@ -5,7 +5,7 @@ import { useState } from "react";
 
 interface Props {
   items: string[];
-  heading: string;
+  heading?: string;
   //
   onSelectItem: (item: string) => void; // just like onClick
 }
