@@ -23,6 +23,7 @@ export async function getThreeArticles(country, apiKey) {
       url: article.url
     }));
 
+    
     return formattedNews;
 }
 
