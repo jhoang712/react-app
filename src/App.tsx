@@ -6,6 +6,7 @@ import Vertical from "./Vertical";
 import Collapse from "./components/Collapse";
 import Dropdown from "./components/Dropdown";
 import { useState } from "react";
+import Card from "./components/Card";
 import ForeCast from "./components/ForeCast";
 
 function App() {
@@ -14,6 +15,11 @@ function App() {
     setIsShown((current) => !current);
     console.log("Changed state");
   };
+  const handleTweetsBtnClick = () => {
+    setIsShown((current) => !current);
+    console.log("Changed state");
+  };
+
   return (
     <>
       {/* <ForeCast></ForeCast> */}
@@ -43,33 +49,48 @@ function App() {
 
         <Button
           color="secondary"
-          onClick={() => console.log("Clicked")}
+          onClick={handleTweetsBtnClick}
           position={{ top: "150px", left: "-350px" }}
         >
           View Related Tweets
         </Button>
 
+        <Dropdown
+          buttonTitle="Select Location"
+          buttonPosition={{ top: "-50px", left: "650px" }}
+          position={{ top: "-10px", left: "650px" }}
+        >
+          <li>
+            <a className="dropdown-item" href="#">
+              California
+            </a>
+          </li>
+          <li>
+            <a className="dropdown-item" href="#">
+              Maryland
+            </a>
+          </li>
+          <li>
+            <a className="dropdown-item" href="#">
+              New York
+            </a>
+          </li>
+        </Dropdown>
+
         <Collapse></Collapse>
         <Vertical></Vertical>
+
         {/* show elements on click */}
         {isShown && (
           <div>
-            <Dropdown
-              buttonTitle="Select Location"
-              buttonPosition={{ top: "-50px", left: "650px" }}
-              position={{ top: "-10px", left: "650px" }}
+            <Card
+              tweetUser="dialnfornick"
+              tweetLink="https://twitter.com/dialnfornick/status/1681015160004116481"
+              position={{ top: "-10px", left: "350px" }}
             >
-              <li>
-                <a className="dropdown-item" href="#">
-                  California
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Maryland
-                </a>
-              </li>
-            </Dropdown>
+              the way I have to check air quality levels daily like it's the
+              weather
+            </Card>
           </div>
         )}
       </div>
