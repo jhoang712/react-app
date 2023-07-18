@@ -6,6 +6,8 @@ import Dropdown from "./components/Dropdown";
 import { useState } from "react";
 import ListGroup from "./components/ListGroup";
 import { getThreeArticles } from "./news";
+import Card from "./components/Card";
+import ForeCast from "./components/ForeCast";
 
 function App() {
   const API_KEY = "b029201ed31848d9a39905d951266fe9";
@@ -18,6 +20,7 @@ function App() {
     setIsShown((current) => !current);
     console.log("Changed state");
   };
+
 
   let items = ["United States of America", "Canada", "Mexico", "China"];
 
@@ -78,6 +81,7 @@ function App() {
 
   return (
     <>
+      {/* <ForeCast></ForeCast> */}
       <div>
         <Alert>
           <center>
@@ -123,7 +127,18 @@ function App() {
         <Vertical></Vertical>
 
         {/* show elements on click */}
-        {isShown && <div></div>}
+        {isShown && (
+          <div>
+            <Card
+              tweetUser="dialnfornick"
+              tweetLink="https://twitter.com/dialnfornick/status/1681015160004116481"
+              position={{ top: "-10px", left: "350px" }}
+            >
+              the way I have to check air quality levels daily like it's the
+              weather
+            </Card>
+          </div>
+        )}
       </div>
     </>
   );
