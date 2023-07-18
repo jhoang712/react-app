@@ -16,7 +16,7 @@ function App() {
   };
   return (
     <>
-      <ForeCast></ForeCast>
+      {/* <ForeCast></ForeCast> */}
       <div>
         <Alert>
           <center>

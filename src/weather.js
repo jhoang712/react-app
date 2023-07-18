@@ -1,4 +1,4 @@
-import { getGeoCode } from "./geoCode.js"
+// import { getGeoCode } from "./geoCode.js"
 
 // need geocoder, timezone
 
@@ -19,14 +19,17 @@ import { getGeoCode } from "./geoCode.js"
 
 // returns forcast data as JSON
 export async function forecastData(location) {
-    console.log("ENTERED FORECASTDATA")
-    const geo = await getGeoCode(location);
-    var lat = geo.latitude;
-    var long = geo.longitude;
+    try {console.log("ENTERED FORECASTDATA");
+    // const geo = await getGeoCode(location);
+    // var lat = geo.latitude;
+    // var long = geo.longitude;
+    // var tz = 'auto'
+    // console.log(lat)
+    // console.log(long)
+    // console.log(geo)
+    var lat = 34.0522
+    var long = 118.2437
     var tz = 'auto'
-    console.log(lat)
-    console.log(long)
-    console.log(geo)
     var forecast = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=temperature_2m_max&temperature_unit=fahrenheit&timezone=${tz}`
 
     // fetch(forecast)
@@ -37,9 +40,15 @@ export async function forecastData(location) {
 
     const data = await fetch(forecast);
     const dataJSON = await data.json();
-    return dataJSON;
+    return dataJSON;}
+    catch (error) {
+        console.log(error)
+    }
 }
 
-// forecastData("torrance, california").then(fc => console.log("SO IT SHOULD BE:", fc))
+// forecastData("torrance, california").then(fc => {
+//     console.log("SO IT SHOULD BE:", fc);
+//     console.log("DATA:", fc.daily.time);
+// })
 // const forecastedData = await forecastData("torrance, california");
 // console.log("SO IT SHOULD BE:", forecastedData)

@@ -13,26 +13,49 @@ const ForeCast = () => {
   //     const dat = forecastData();
   //     // console.log("DAT = ", dat);
   //   });
-  forecastData();
+  //   forecastData();
   useEffect(() => {
-    try {
-      console.log("WHATS GOIN ON");
-      //   forecastData();
-    } catch (error) {
-      console.log(error);
-    }
-  });
+    console.log("WHATS GOIN ON");
+    forecastData().then((res) => {
+      console.log(res);
+      setChart(res.data);
+    });
+  }, []);
+  console.log("chart = ", chart);
+
+  const hardcodedTime = [
+    "2023-07-18",
+    "2023-07-19",
+    "2023-07-20",
+    "2023-07-21",
+    "2023-07-22",
+    "2023-07-23",
+    "2023-07-24",
+  ];
+
+  const hardcodedTemp = [87.3, 82.3, 79.1, 83.5, 90.3, 95.3, 94.9];
 
   var data = {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: hardcodedTime,
     datasets: [
       {
-        label: "# of Votes",
-        data: [12, 19, 3, 5, 2, 3],
+        label: "Temp (°F)",
+        data: hardcodedTemp,
         borderWidth: 1,
       },
     ],
   };
+
+  //   var data = {
+  //     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  //     datasets: [
+  //       {
+  //         label: "# of Votes",
+  //         data: [12, 19, 3, 5, 2, 3],
+  //         borderWidth: 1,
+  //       },
+  //     ],
+  //   };
 
   var options = {
     maintainAspectRatio: false,
