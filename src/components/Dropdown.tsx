@@ -1,24 +1,32 @@
 import React, { useState } from "react";
-
+import { getThreeArticles } from "../news";
 interface Props {
   buttonTitle: string;
   buttonPosition: { top: string; left: string };
   children: React.ReactNode;
   position: { top: string; left: string };
+  onClick?: () => void;
+  //id: string;
 }
 
 const Dropdown: React.FC<Props> = ({
   buttonTitle,
   buttonPosition,
   children,
+  //id,
+  onClick,
   position,
 }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
-    console.log("dropdown is clicked");
+    console.log("dropdown button is clicked");
   };
+
+  /*const handleLocationSelect = () => {
+    console.log(children);
+  }; */
 
   const dropdownStyle: React.CSSProperties = {
     position: "absolute",
@@ -52,6 +60,7 @@ const Dropdown: React.FC<Props> = ({
           className="dropdown-menu"
           aria-labelledby="dropdownMenuButton1"
           style={dropdownStyle}
+          //onClick={onClick}
         >
           {children}
         </ul>
