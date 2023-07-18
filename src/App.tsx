@@ -8,19 +8,47 @@ import ListGroup from "./components/ListGroup";
 import { getThreeArticles } from "./news";
 import Card from "./components/Card";
 import ForeCast from "./components/ForeCast";
-
+const componentStyle: React.CSSProperties = {
+  position: "absolute",
+  top: "150px",
+  left: "625px",
+};
 function App() {
   const API_KEY = "b029201ed31848d9a39905d951266fe9";
   const [isShown, setIsShown] = useState(false);
+  const [isGraphShown, setIsGraphShown] = useState(false);
+  const [isNewsShown, setIsNewsShown] = useState(false);
+
   const handleWeatherBtnClick = () => {
-    setIsShown((current) => !current);
+    setIsGraphShown((current) => !current);
+    if (isShown) {
+      setIsShown((current) => !current);
+    }
+    if (isNewsShown) {
+      setIsNewsShown((current) => !current);
+    }
     console.log("Changed state");
   };
   const handleTweetsBtnClick = () => {
     setIsShown((current) => !current);
+    if (isGraphShown) {
+      setIsGraphShown((current) => !current);
+    }
+    if (isNewsShown) {
+      setIsNewsShown((current) => !current);
+    }
     console.log("Changed state");
   };
-
+  const handleNewsBtnClick = () => {
+    setIsNewsShown((current) => !current);
+    if (isGraphShown) {
+      setIsGraphShown((current) => !current);
+    }
+    if (isShown) {
+      setIsShown((current) => !current);
+    }
+    console.log("Changed state");
+  };
 
   let items = ["United States of America", "Canada", "Mexico", "China"];
 
@@ -99,7 +127,7 @@ function App() {
 
         <Button
           color="light"
-          onClick={() => console.log("Clicked")}
+          onClick={handleNewsBtnClick}
           position={{ top: "90px", left: "-190px" }}
         >
           See News Reports
@@ -117,22 +145,27 @@ function App() {
           buttonTitle="Select Location"
           buttonPosition={{ top: "-50px", left: "650px" }}
           position={{ top: "-10px", left: "650px" }}
-          //onClick={handleLocationClick}
-          <li>
-                <a className="dropdown-item" href="#">
-                  California
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Maryland
-                </a>
-              </li>
-            </Dropdown>
-            <div>{isShown && <ForeCast></ForeCast>}</div>
+          //onClick={handleLocationClick}></div>
         >
-          <ListGroup items={items} onSelectItem={fetchArticles} />
+          <li>
+            <a className="dropdown-item" href="#">
+              California
+            </a>
+          </li>
+          <li>
+            <a className="dropdown-item" href="#">
+              Maryland
+            </a>
+          </li>
         </Dropdown>
+        <div>{isGraphShown && <ForeCast></ForeCast>}</div>
+
+        <div style={componentStyle}>
+          {isNewsShown && (
+            <ListGroup items={items} onSelectItem={fetchArticles} />
+          )}
+        </div>
+        {/* </Dropdown> */}
 
         <Collapse></Collapse>
         <Vertical></Vertical>
