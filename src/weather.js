@@ -1,4 +1,5 @@
 import { getGeoCode } from "./geoCode.js"
+
 // need geocoder, timezone
 
 // var lat = 34.0522
@@ -18,6 +19,7 @@ import { getGeoCode } from "./geoCode.js"
 
 // returns forcast data as JSON
 export async function forecastData(location) {
+    console.log("ENTERED FORECASTDATA")
     const geo = await getGeoCode(location);
     var lat = geo.latitude;
     var long = geo.longitude;
@@ -39,5 +41,5 @@ export async function forecastData(location) {
 }
 
 // forecastData("torrance, california").then(fc => console.log("SO IT SHOULD BE:", fc))
-const forecastedData = await forecastData("torrance, california");
-console.log("SO IT SHOULD BE:", forecastedData)
+// const forecastedData = await forecastData("torrance, california");
+// console.log("SO IT SHOULD BE:", forecastedData)
