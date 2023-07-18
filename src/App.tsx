@@ -81,7 +81,6 @@ function App() {
 
   return (
     <>
-      {/* <ForeCast></ForeCast> */}
       <div>
         <Alert>
           <center>
@@ -119,6 +118,18 @@ function App() {
           buttonPosition={{ top: "-50px", left: "650px" }}
           position={{ top: "-10px", left: "650px" }}
           //onClick={handleLocationClick}
+          <li>
+                <a className="dropdown-item" href="#">
+                  California
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Maryland
+                </a>
+              </li>
+            </Dropdown>
+            <div>{isShown && <ForeCast></ForeCast>}</div>
         >
           <ListGroup items={items} onSelectItem={fetchArticles} />
         </Dropdown>

@@ -3,8 +3,15 @@ import { forecastData } from "../weather.js";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS, LineElement } from "chart.js/auto";
 import { CategoryScale, LinearScale } from "chart.js/auto";
+import { css } from "@emotion/react";
 
 ChartJS.register(LineElement, CategoryScale, LinearScale);
+
+const componentStyle: React.CSSProperties = {
+  position: "absolute",
+  top: "150px",
+  left: "550px",
+};
 
 const ForeCast = () => {
   const [chart, setChart] = useState([]);
@@ -67,7 +74,8 @@ const ForeCast = () => {
   };
 
   return (
-    <div>
+    <div style={componentStyle}>
+      {/* <h3>Califonia Temperature Forecast</h3> */}
       <Line data={data} options={options} />
     </div>
   );
